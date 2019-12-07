@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform-style: preserve-3d;
+    will-change: transform;
+    perspective: 3500px;
+    overflow: hidden;  
+}
+.box{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    transform-style: preserve-3d;
+    will-change: transform;
+}
+
+/* Za Warudo: Start */
+.slinger{
+    position: absolute;
+    top: 10px;
+    left: 30px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    z-index: 99999;
+}
+.web{
+    position: absolute;
+    top: 80px;
+    left: 5px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    transform: rotate(-90deg);
+    z-index: 99999;
+}
+.name1{
+    position: absolute;
+    bottom: 90px;
+    left: 0px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    transform: rotate(90deg);
+    z-index: 99999;
+}
+.name2{
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    z-index: 99999;
+    
+}
+.next{
+    position: absolute;
+    bottom: 10px;
+    right: 40px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    z-index: 99999;
+    cursor: pointer;
+}
+.prev{
+    position: absolute;
+    bottom: 90px;
+    right: 5px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    transform: rotate(90deg);
+    z-index: 99999;
+    cursor: pointer;
+}
+.logo1{
+    position: absolute;
+    top: 10px;
+    right: 50px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    z-index: 99999;
+}
+.logo2{
+    position: absolute;
+    top: 90px;
+    right: 0px;
+    font-family: sans-serif;
+    font-size: 2.5rem;
+    transform: rotate(90deg);
+    z-index: 99999;
+}
+.typewrite{
+    text-align: left;
+    font-style: italic;
+    font-size: 0.7rem;
+}
+.in_nav{
+    position: absolute;
+    top: 55vh;
+    left: 0;
+    z-index: 999;
+    background: transparent;
+    width: 4vw;
+    transform: translateY(-50%);
+}
+.scrolldf{
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+    z-index: 99999;
+    transform: translateX(-50%);
+}
+/* Za warudo: end */
+
+
+.l1{
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    font-size: 1.2vw;
+    font-style: normal;
+    top: 50vh;
+    left: 46vw;
+    transform: translate3d(-60%,-50%,2500px);
+    text-align: center;
+
+}
+
+.l2{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    height: 40%;
+    width: 32vw;
+    transform: translate3d(-50%,-50%,2000px) rotateY(10deg) rotateX(40deg);
+}
+
+
+
+.l4{
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.3rem;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-60%,-50%,1700px);
+    text-align: center;
+    cursor: pointer;
+}
+.l5{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    height: 11vh;
+    width: 10vw;
+    transform: translate3d(-50%,-50%,1500px) rotateY(-10deg) rotateX(25deg);
+}
+.l6{
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.4rem;
+    font-style: italic;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-50%,-50%,1400px);
+    background: black;
+    height: 100vh;
+    width: 100vw;
+    display: none; 
+}
+.l7{
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.4rem;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-60%,-50%,1200px);
+    text-align: center;
+    cursor: pointer;
+}
+.l8{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    height: 11vh;
+    width: 10vw;
+    transform: translate3d(-50%,-50%,1000px) rotateY(-10deg) rotateX(25deg);
+}
+.l10{
+    position: absolute;
+    color: white;
+    font-family: sans-serif;
+    font-size: 0.3rem;
+    top: 50vh;
+    left: 50vw;
+    transform: translate3d(-60%,-50%,800px);
+    text-align: center;
+    cursor: pointer;
+}
+.l11{
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    height: 11vh;
+    width: 10vw;
+    transform: translate3d(-50%,-50%,600px) rotateY(-10deg) rotateX(25deg);
+}
