@@ -9,48 +9,94 @@ const zposition = [0,1540,2030,2520];
 
 function touchHandler(event)
 {
+    console.log(event)
+    if (e.wheelDelta<=0){   
+        i += 40;  
+        
+        TweenLite.to(box,0.5, {
+            transform: 'translateZ('+i+'px)'
+        });
+    }
+    else{          
+        i-=40;
+        TweenLite.to(box,0.5, {
+            transform: 'translateZ('+i+'px)'
+        });   
+    }
+    body.style.overflow = 'hidden';
+    if(i <= zposition[0]){
+        n = 0;
+    }
+    if(i >= zposition[0] && i < zposition[1]){
+        n = 0;
+    }
+    if(i >= zposition[1] && i < zposition[2]){
+        n = 1;
+    }
+    if(i >= zposition[2] && i < zposition[3]){
+        n = 2;
+    }
+}
 
-    console.log('arts')
-    var touches = event.changedTouches,
-        first = touches[0],
-        type = "";
-    switch(event.type)
-    {
-        case "touchstart": type = "mousedown"; break;
-        case "touchmove":  type = "mousemove"; break;        
-        case "touchend":   type = "mouseup";   break;
-        default:           return;
+
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;
+
+function getTouches(evt) {
+  return evt.touches ||             // browser API
+         evt.originalEvent.touches; // jQuery
+}                                                     
+
+function handleTouchStart(evt) {
+    const firstTouch = getTouches(evt)[0];                                      
+    xDown = firstTouch.clientX;                                      
+    yDown = firstTouch.clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
     }
 
-    // initMouseEvent(type, canBubble, cancelable, view, clickCount, 
-    //                screenX, screenY, clientX, clientY, ctrlKey, 
-    //                altKey, shiftKey, metaKey, button, relatedTarget);
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
 
-    var simulatedEvent = document.createEvent("MouseEvent");
-    simulatedEvent.initMouseEvent(type, true, true, window, 1, 
-                                  first.screenX, first.screenY, 
-                                  first.clientX, first.clientY, false, 
-                                  false, false, false, 0/*left*/, null);
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
 
-    first.target.dispatchEvent(simulatedEvent);
-    event.preventDefault();
-}
-
-function init() 
-{
-    document.addEventListener("touchstart", touchHandler, true);
-    document.addEventListener("touchmove", touchHandler, true);
-    document.addEventListener("touchend", touchHandler, true);
-    document.addEventListener("touchcancel", touchHandler, true);    
-}
-
-init()
-
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */ 
+        } else {
+            /* right swipe */
+        }                       
+    } else {
+        if ( yDiff > 0 ) {
+            /* up swipe */
+            var evt = document.createEvent('MouseEvents');
+            evt.initEvent('mousewheel', true, true);
+            evt.wheelDelta = +100;
+            document.dispatchEvent(evt); 
+        } else { 
+            /* down swipe */
+            var evt = document.createEvent('MouseEvents');
+            evt.initEvent('mousewheel', true, true);
+            evt.wheelDelta = -100;
+            document.dispatchEvent(evt); 
+        }                                                                 
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
 
 
 //traversal of z-coordinate
 i=0;
-body.addEventListener('mousewheel', Scrolling);
+window.addEventListener('mousewheel', Scrolling);
 function Scrolling(e) {
     
     /* if(i>2550){
@@ -85,8 +131,7 @@ function Scrolling(e) {
         n = 2;
     }
     /* box.style.transform ='translateZ('+i+'px)'; */
-/*     console.log(i)
- */}
+}
 
 // E needs
 
