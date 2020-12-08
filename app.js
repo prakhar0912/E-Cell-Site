@@ -6,39 +6,6 @@ const prev = document.querySelector('.prev');
 const zposition = [0,1540,2030,2520];
 
 
-
-function touchHandler(event)
-{
-    console.log(event)
-    if (e.wheelDelta<=0){   
-        i += 40;  
-        
-        TweenLite.to(box,0.5, {
-            transform: 'translateZ('+i+'px)'
-        });
-    }
-    else{          
-        i-=40;
-        TweenLite.to(box,0.5, {
-            transform: 'translateZ('+i+'px)'
-        });   
-    }
-    body.style.overflow = 'hidden';
-    if(i <= zposition[0]){
-        n = 0;
-    }
-    if(i >= zposition[0] && i < zposition[1]){
-        n = 0;
-    }
-    if(i >= zposition[1] && i < zposition[2]){
-        n = 1;
-    }
-    if(i >= zposition[2] && i < zposition[3]){
-        n = 2;
-    }
-}
-
-
 document.addEventListener('touchstart', handleTouchStart, false);        
 document.addEventListener('touchmove', handleTouchMove, false);
 
@@ -93,6 +60,24 @@ function handleTouchMove(evt) {
     yDown = null;                                             
 };
 
+let converter = 1;
+
+if(window.innerWidth < 800){
+    converter = 10;
+}
+else{
+    converter = 1;
+}
+
+
+window.addEventListener('resize', () => {
+    if(window.innerWidth < 800){
+        converter = 10;
+    }
+    else{
+        converter = 1;
+    }
+})
 
 //traversal of z-coordinate
 i=0;
@@ -105,14 +90,14 @@ function Scrolling(e) {
         body.removeEventListener("mousewheel",Scrolling);
     } */
     if (e.wheelDelta<=0){   
-        i += 40;  
+        i += converter*40;  
         
         TweenLite.to(box,0.5, {
             transform: 'translateZ('+i+'px)'
         });
     }
     else{          
-        i-=40;
+        i-= converter*40;
         TweenLite.to(box,0.5, {
             transform: 'translateZ('+i+'px)'
         });   
